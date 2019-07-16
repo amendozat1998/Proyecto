@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../Templates/plantilla_menu.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="titulo">
+        <h:outputText value="Registro"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+        <h3 style="margin-top:0">Seleccionar Periodo de Tiempo</h3>
+        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+           <p:outputLabel for="año" value="Año:" />
+            <p:selectOneRadio id="año" value="#{radioView.console}" >
+                <f:selectItem itemLabel="2015" itemValue="2015" />
+                <f:selectItem itemLabel="2016" itemValue="2016" />
+            </p:selectOneRadio>
+           <p:outputLabel for="trim" value="Trimestre:" />
+           <p:selectOneMenu id="trim" value="#{selectOneMenuView.console}" style="width:125px">
+               <f:selectItem itemLabel="1" itemValue="1" />
+               <f:selectItem itemLabel="2" itemValue="2" />
+               <f:selectItem itemLabel="3" itemValue="3" />
+               <f:selectItem itemLabel="4" itemValue="4" />
+           </p:selectOneMenu>
+           <p:outputLabel for="mes" value="Mes:" />
+           <p:selectOneMenu id="mes" value="#{selectOneMenuView.console}" style="width:125px">
+               <f:selectItem itemLabel="Enero" itemValue="Enero" />
+               <f:selectItem itemLabel="Febrero" itemValue="Febrero" />
+               <f:selectItem itemLabel="Marzo" itemValue="Marzo" />
+               <f:selectItem itemLabel="Abril" itemValue="Abril" />
+           </p:selectOneMenu>   
+        </h:panelGrid>
+         <h3 style="margin-top:0">Seleccionar Ubicacion</h3>
+        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+           <p:outputLabel for="prov" value="Provincia:" />
+           <p:selectOneMenu id="prov" value="#{selectOneMenuView.console}" style="width:125px">
+               <f:selectItem itemLabel="Azuay" itemValue="Azuay" />
+               <f:selectItem itemLabel="Pichincha" itemValue="Pichincha" />
+               <f:selectItem itemLabel="Esmeraldas" itemValue="Esmeraldas" />
+           </p:selectOneMenu>
+           <p:outputLabel for="canton" value="Canton:" />
+           <p:selectOneMenu id="canton" value="#{selectOneMenuView.console}" style="width:125px">
+               <f:selectItem itemLabel="Quito" itemValue="Quito" />
+               <f:selectItem itemLabel="Mejia" itemValue="Mejia" />
+               <f:selectItem itemLabel="Marzo" itemValue="Marzo" />
+               <f:selectItem itemLabel="Abril" itemValue="Abril" />
+           </p:selectOneMenu>
+            <p:outputLabel for="parro" value="Parroquia:" />
+           <p:selectOneMenu id="parro" value="#{selectOneMenuView.console}" style="width:125px">
+               <f:selectItem itemLabel="Atahualpa" itemValue="Atahualpa" />
+               <f:selectItem itemLabel="Mejia" itemValue="Mejia" />
+               <f:selectItem itemLabel="Marzo" itemValue="Marzo" />
+               <f:selectItem itemLabel="Abril" itemValue="Abril" />
+           </p:selectOneMenu>
+        </h:panelGrid>
+         <h3 style="margin-top:0">Seleccionar Estado Civil</h3>
+        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+           <p:outputLabel for="estado" value="Estado Civil:" />
+           <p:selectOneMenu id="estado" value="#{selectOneMenuView.console}" style="width:125px">
+               <f:selectItem itemLabel="Soltero" itemValue="Soltero" />
+               <f:selectItem itemLabel="Casado" itemValue="Casado" />
+               <f:selectItem itemLabel="Divorciado" itemValue="Divorciado" />
+           </p:selectOneMenu>
+        </h:panelGrid>
+         <h:commandButton action="#{CO.consulta()}" value="Consultar" class="boton"/>
+         <br>
+         <p:chart type="line" model="#{chartView.areaModel}" style="height:300px" />
+         </br>
+        </h:form> 
+    </ui:define>
+
+</ui:composition>
